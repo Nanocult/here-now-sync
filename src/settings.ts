@@ -86,9 +86,9 @@ export class HereNowSyncSettingTab extends PluginSettingTab {
     containerEl.empty();
 
     // Header
-    containerEl.createEl('h2', { text: 'here.now Sync Settings' });
+    containerEl.createEl('h2', { text: 'Here.Now Drive Settings' });
     containerEl.createEl('p', { 
-      text: 'Sync your Obsidian vault with here.now Drives (private) or Sites (public).',
+      text: 'Sync your Obsidian vault with here.now drives (private) or sites (public).',
       cls: 'mod-info'
     });
 
