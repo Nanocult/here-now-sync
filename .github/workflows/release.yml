@@ -1,0 +1,46 @@
+name: Release Obsidian plugin
+
+on:
+  push:
+    tags:
+      - "*"
+  workflow_dispatch: # Allows manual triggers
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      id-token: write
+      attestations: write
+      contents: write
+    
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18.x"
+
+      - name: Build plugin
+        run: |
+          npm install
+          npm run build
+
+      - name: Generate artifact attestation
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-path: 'dist/**'
+
+      - name: Create release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          tag="${GITHUB_REF#refs/tags/}"
+
+          gh release create "$tag" \
+            --title="$tag" \
+            --generate-notes \
+            --draft \
+            dist/main.js dist/manifest.json dist/styles.css
