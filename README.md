@@ -1,4 +1,4 @@
-# 🔗 Obsidian ↔ here.now Sync
+# 🔗 Here.Now Sync
 
 > Bidirectional synchronization between your Obsidian vault and [here.now](https://here.now) Drives (private cloud storage) or Sites (public URLs), with offline support, conflict resolution, secure API key storage, and comprehensive diagnostic logging.
 
