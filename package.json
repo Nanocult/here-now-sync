@@ -1,7 +1,7 @@
 {
   "name": "here-now-drive",
   "version": "0.0.8",
-  "description": "Sync with here.now Drives and Sites",
+  "description": "Sync with here.now drives and sites",
   "main": "dist/main.js",
   "scripts": {
     "dev": "node esbuild.config.mjs",
